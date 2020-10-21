@@ -102,6 +102,6 @@ router.get('/api/users/:username', (req, res) => {
     });
 });
 
-app.listen(9900, (req, res) => {
+app.listen(8080, (req, res) => {
     console.log('server rodando na porta 9900')
 });
