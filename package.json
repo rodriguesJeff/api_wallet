@@ -14,10 +14,10 @@
   "author": "Jefferson Rodrigues",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
-    "compression": "^1.7.4",
     "express": "^4.17.1",
-    "mysql": "^2.17.1"
+    "mongoose": "^5.10.11"
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
