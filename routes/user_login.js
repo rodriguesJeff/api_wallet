@@ -13,7 +13,7 @@ router.post('/login', async (req, res) => {
         if (await !User.findOne({ email, pass }))
             res.status(404).json({ message: 'Login failed' });
 
-        let user = await User.findOne({
+        await User.findOne({
             email : email
         }).then( user => {
             if (!user) {
@@ -24,9 +24,9 @@ router.post('/login', async (req, res) => {
                         res.status(404).json({ message: 'password incorrect' });
                     } 
                     
-                    let _email_user = user.email;
+                    let email_login = user.email;
 
-                    const _token = jwt.sign({ _email_user }, process.env.SECRET, {
+                    const _token = jwt.sign({ email_login }, process.env.SECRET, {
                         expiresIn: '604800'
                     });
 
@@ -39,10 +39,8 @@ router.post('/login', async (req, res) => {
         });
     } catch(err) {
         if (err) throw err;
-        return res.status(404).json({
-            message: 'Failed to authentication',
-            token: null,
-            auth: false
+        return res.status(500).json({
+            message: 'Internal server error',
         });
     }
 

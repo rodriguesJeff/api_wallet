@@ -18,6 +18,7 @@ router.get('/api', (req, res, next) => {
 
 require('./routes/user_register')(app);
 require('./routes/user_login')(app);
+require('./routes/user_data')(app);
 
 app.listen(8080, (req, res) => {
     console.log('server rodando na porta 8080')
