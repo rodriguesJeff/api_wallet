@@ -4,6 +4,7 @@ const db = require('./database/bd');
 
 const app = express();
 const router = express.Router();
+const port = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +21,6 @@ require('./routes/user_register')(app);
 require('./routes/user_login')(app);
 require('./routes/user_data')(app);
 
-app.listen(8080, (req, res) => {
+app.listen(port, (req, res) => {
     console.log('server rodando na porta 8080')
 });
